@@ -1,0 +1,66 @@
+@startuml
+actor "Tesla Owner" as client
+participant "VehicleController" as vc
+participant "VehicleVerificationService" as vvs
+participant "ErpTeslaLocalRepository" as repo
+participant "LocalFileStorage" as fs
+participant "AuthController" as ac
+participant "UserRegistrationService" as urs
+participant "EmailVerificationService" as evs
+participant "SmtpEmailSender" as smtp
+participant "UserRepository" as ur
+participant "AuthService" as as
+participant "OtpService" as otp
+participant "TwilioOtpSender" as twilio
+participant "JwtService" as jwt
+participant "RefreshTokenRepository" as rtr
+
+== Step 1: Vehicle Verification ==
+client -> vc : POST /api/vehicles/verify/local\n{chassis, plate, plateType, model}
+vc -> vvs : verifyLocalVehicle(chassis, plate, plateType, model, ip)
+vvs -> repo : findByChassisNumberAndPlateNumber(chassis, plate)
+repo --> vvs : ErpTeslaLocal
+vvs --> vvs : generate verificationToken (UUID, TTL 10min)
+vvs --> vc : VerificationResult{token}
+vc --> client : 200 OK {verificationToken}
+
+== Step 2: Register Account ==
+client -> ac : POST /api/auth/register\n{token, firstName, lastName, email, password, phone, countryCode}
+ac -> urs : registerUser(token, ...)
+urs -> vvs : consumeToken(token)
+vvs --> urs : VerificationContext{chassis, model, origin}
+urs -> ur : save(User)
+ur --> urs : User{id}
+urs -> evs : sendVerificationEmail(userId)
+evs -> ur : findById(userId)
+evs -> smtp : send(email, verifyLink)
+urs --> ac : User
+ac --> client : 201 Created {userId}
+
+== Step 3: Login + OTP ==
+client -> ac : POST /api/auth/login\n{email, password}
+ac -> as : login(email, password, ip)
+as -> ur : findByEmail(email)
+ur --> as : User
+as -> as : verifyPassword(BCrypt)
+as --> ac : userId (UUID)
+ac -> otp : sendOtp(userId)
+otp -> ur : findById(userId)
+otp -> twilio : sendOtp(countryCode, phone, otpCode)
+otp --> ac : void
+ac --> client : 200 OK {message: "OTP sent"}
+
+== Step 4: OTP Verify + Token Issuance ==
+client -> "OtpController" as oc : POST /api/otp/verify\n{userId, otp}
+oc -> otp : verifyOtp(userId, otp)
+otp -> otp : checkOtpMap(userId, otp)
+otp --> oc : VerifyOtpResult{success}
+oc -> as : issueTokens(userId)
+as -> jwt : generateAccessToken(userId, role)
+jwt --> as : accessToken (JWT, 15min)
+as -> jwt : generateRefreshToken()
+jwt --> as : refreshTokenRaw
+as -> rtr : save(RefreshToken{hash, userId, expiresAt})
+as --> oc : TokenPair{accessToken, refreshToken}
+oc --> client : 200 OK {accessToken, refreshToken}
+@enduml

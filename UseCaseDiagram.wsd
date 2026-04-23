@@ -1,0 +1,48 @@
+@startuml
+left to right direction
+actor "Tesla Owner" as user
+actor "Admin" as admin
+actor "Twilio SMS" as twilio
+actor "SMTP Email" as smtp
+actor "PostgreSQL DB" as db
+
+rectangle "Telsa Platform" {
+  usecase "Verify Local Vehicle" as UC1
+  usecase "Verify Foreign Vehicle" as UC2
+  usecase "Register Account" as UC3
+  usecase "Verify Email" as UC4
+  usecase "Login" as UC5
+  usecase "Verify OTP" as UC6
+  usecase "Refresh Token" as UC7
+  usecase "Logout" as UC8
+  usecase "Find Nearby Charging Stations" as UC9
+  usecase "Manage Users" as UC10
+  usecase "View Stats" as UC11
+  usecase "Add Vehicle to ERP" as UC12
+}
+
+user --> UC1
+user --> UC2
+user --> UC3
+user --> UC4
+user --> UC5
+user --> UC6
+user --> UC7
+user --> UC8
+user --> UC9
+
+admin --> UC10
+admin --> UC11
+admin --> UC12
+
+UC3 ..> UC1 : <<include>> or UC2
+UC5 ..> UC6 : <<include>>
+UC6 ..> UC6 : resend OTP
+
+twilio <-- UC6
+smtp <-- UC4
+db <-- UC1
+db <-- UC2
+db <-- UC3
+db <-- UC5
+@enduml
