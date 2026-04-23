@@ -2,7 +2,6 @@ package com.example.Telsa.web.controller;
 
 import com.example.Telsa.domain.model.ErpTeslaLocal;
 import com.example.Telsa.domain.model.VehicleOrigin;
-import com.example.Telsa.infrastructure.adapters.db.ErpTeslaForeignRepository;
 import com.example.Telsa.infrastructure.adapters.db.ErpTeslaLocalRepository;
 import com.example.Telsa.infrastructure.adapters.db.UserRepository;
 import com.example.Telsa.web.dto.request.AdminLocalErpRequest;
@@ -35,7 +34,6 @@ public class AdminController {
 
     private final UserRepository userRepository;
     private final ErpTeslaLocalRepository erpTeslaLocalRepository;
-    private final ErpTeslaForeignRepository erpTeslaForeignRepository;
 
     @GetMapping("/users")
     @Operation(summary = "List users")
@@ -97,4 +95,3 @@ public class AdminController {
         return ResponseEntity.ok(ApiResponse.ok("Vehicle added to local ERP.", saved));
     }
 }
-

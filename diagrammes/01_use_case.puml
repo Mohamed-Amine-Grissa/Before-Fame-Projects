@@ -1,0 +1,144 @@
+@startuml UseCase_Telsa
+' ———————————————————————————————————————————————
+' Diagramme de Cas d'Utilisation
+' Telsa Charging Points — Plateforme de recharge pour Tesla vérifiés (Tunisie)
+' ———————————————————————————————————————————————
+
+skinparam backgroundColor #F4F1EC
+skinparam shadowing false
+skinparam defaultFontName "Inter Tight"
+skinparam ArrowColor #0A0A0B
+skinparam ActorBorderColor #0A0A0B
+skinparam ActorBackgroundColor #F4F1EC
+skinparam ActorFontColor #0A0A0B
+skinparam UsecaseBorderColor #0A0A0B
+skinparam UsecaseBackgroundColor #FFFFFF
+skinparam UsecaseFontColor #0A0A0B
+skinparam PackageBorderColor #0A0A0B
+skinparam PackageBackgroundColor #EDE9E0
+skinparam PackageFontStyle bold
+skinparam NoteBackgroundColor #FFF7D6
+skinparam NoteBorderColor #8A7400
+
+left to right direction
+
+title <size:18><b>Telsa Charging Points</b></size>\n<size:12>Diagramme de cas d'utilisation</size>
+
+' ————— ACTEURS PRIMAIRES —————
+actor "Visiteur"              as Visitor
+actor "Propriétaire vérifié"  as Owner
+actor "Administrateur"        as Admin
+
+' Hiérarchie : un propriétaire est un visiteur authentifié ; un admin est un propriétaire privilégié.
+Owner --|> Visitor
+Admin --|> Owner
+
+' ————— ACTEURS SECONDAIRES (systèmes externes) —————
+actor "Registre ERP\n(véhicules Tunisie)"  as ERP        <<system>>
+actor "Réviseur\ncarte grise"              as Reviewer   <<human>>
+actor "Service SMS\n(Twilio)"              as Twilio     <<system>>
+actor "Service e-mail\n(SMTP)"             as SMTP       <<system>>
+actor "Stockage fichiers\n(File Storage)"  as Storage    <<system>>
+
+' ————— FRONTIÈRE DU SYSTÈME —————
+rectangle "Système  ::  Telsa Charging Points" {
+
+  package "Vérification du véhicule" as PKG_VERIF {
+    usecase "Vérifier véhicule local\n(chassis + plaque)"          as UC_VL
+    usecase "Vérifier véhicule étranger\n(carte grise)"            as UC_VF
+    usecase "Consulter ERP local"                                   as UC_ERP
+    usecase "Téléverser carte grise"                                as UC_UP
+    usecase "Arbitrer dossier étranger"                             as UC_RVW
+  }
+
+  package "Compte & Authentification" as PKG_AUTH {
+    usecase "Créer un compte"                                       as UC_REG
+    usecase "Confirmer l'adresse e-mail"                            as UC_EMAIL
+    usecase "Se connecter"                                          as UC_LOGIN
+    usecase "Vérifier OTP"                                          as UC_OTP
+    usecase "Renvoyer OTP"                                          as UC_RESEND
+    usecase "Rafraîchir la session"                                 as UC_REF
+    usecase "Se déconnecter"                                        as UC_OUT
+    usecase "Limiter le débit\n(rate-limit)"                        as UC_RL
+    usecase "Verrouiller le compte"                                 as UC_LOCK
+  }
+
+  package "Usage authentifié" as PKG_APP {
+    usecase "Consulter les bornes\nà proximité"                     as UC_NEAR
+    usecase "Consulter son compte"                                  as UC_ACC
+  }
+
+  package "Administration" as PKG_ADMIN {
+    usecase "Consulter les statistiques"                            as UC_STATS
+    usecase "Lister les utilisateurs"                               as UC_LIST
+    usecase "Consulter un utilisateur"                              as UC_USR
+    usecase "Supprimer un utilisateur"                              as UC_DEL
+    usecase "Ajouter une entrée ERP locale"                         as UC_ERP_ADD
+  }
+}
+
+' ————— ASSOCIATIONS ACTEURS / CAS —————
+Visitor --> UC_VL
+Visitor --> UC_VF
+Visitor --> UC_REG
+Visitor --> UC_EMAIL
+Visitor --> UC_LOGIN
+
+Owner   --> UC_NEAR
+Owner   --> UC_ACC
+Owner   --> UC_REF
+Owner   --> UC_OUT
+Owner   --> UC_RESEND
+
+Admin   --> UC_STATS
+Admin   --> UC_LIST
+Admin   --> UC_USR
+Admin   --> UC_DEL
+Admin   --> UC_ERP_ADD
+
+Reviewer --> UC_RVW
+
+' Systèmes externes sollicités par les cas d'utilisation
+UC_ERP     --> ERP
+UC_UP      --> Storage
+UC_EMAIL   ..> SMTP  : <<invoque>>
+UC_OTP     ..> Twilio : <<invoque>>
+UC_RESEND  ..> Twilio : <<invoque>>
+
+' ————— RELATIONS <<include>> / <<extend>> —————
+UC_VL     ..> UC_ERP   : <<include>>
+UC_VL     ..> UC_RL    : <<include>>
+UC_VF     ..> UC_UP    : <<include>>
+UC_VF     ..> UC_RVW   : <<include>>
+
+UC_REG    ..> UC_VL    : <<precondition>>
+UC_REG    ..> UC_EMAIL : <<include>>
+
+UC_LOGIN  ..> UC_OTP   : <<include>>
+UC_LOGIN  ..> UC_RL    : <<include>>
+UC_LOCK   ..> UC_LOGIN : <<extend>>\n(3 échecs)
+
+UC_OTP    ..> UC_RL    : <<include>>
+
+' ————— NOTES —————
+note right of PKG_AUTH
+  <b>Sécurité</b>
+  • JWT stateless (access + refresh)
+  • Rotation du refresh token
+  • Hash SHA-256 du refresh
+  • OTP à durée limitée
+  • Verrouillage après N échecs
+end note
+
+note bottom of PKG_VERIF
+  <b>Deux chemins de vérification</b>
+  Local  : plaque + VIN → ERP immédiat
+  Étranger : VIN + carte grise → revue humaine
+end note
+
+note bottom of PKG_ADMIN
+  Accès réservé à <b>ROLE_ADMIN</b>
+  (contrôle par SecurityConfig)
+end note
+
+@enduml

@@ -74,9 +74,8 @@ uploads/
 carte-grise/
 
 # Sensitive configuration
+.env
+*.env
+application-local.properties
 application.properties
-
-#Tutorial specific
-Telsa/Tutorials/
-Telsa/Tutorials2/
 

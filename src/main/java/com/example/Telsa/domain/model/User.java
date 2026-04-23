@@ -54,6 +54,20 @@ public class User {
     @Column(nullable = false)
     private boolean verified;
 
+    @Column(nullable = false)
+    @Builder.Default
+    private boolean emailVerified = false;
+
+    @Column
+    private String emailVerifyToken;
+
+    @Column
+    private LocalDateTime emailTokenExpiresAt;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private String role = "USER";
+
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private VehicleOrigin vehicleOrigin;

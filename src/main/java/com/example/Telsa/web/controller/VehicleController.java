@@ -6,6 +6,7 @@ import com.example.Telsa.web.dto.request.LocalVerifyRequest;
 import com.example.Telsa.web.dto.response.ApiResponse;
 import com.example.Telsa.web.dto.response.VerificationTokenResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -26,12 +27,14 @@ public class VehicleController {
     @PostMapping("/verify/local")
     @Operation(summary = "Verify a local Tesla vehicle")
     public ResponseEntity<ApiResponse<VerificationTokenResponse>> verifyLocal(
-            @Valid @RequestBody LocalVerifyRequest request) {
+            @Valid @RequestBody LocalVerifyRequest request,
+            HttpServletRequest httpRequest) {
         var result = vehicleVerificationService.verifyLocalVehicle(
                 request.getChassisNumber(),
                 request.getPlateNumber(),
                 request.getPlateType(),
-                request.getTeslaModel()
+                request.getTeslaModel(),
+                httpRequest.getRemoteAddr()
         );
         return ResponseEntity.ok(ApiResponse.ok(
                 "Vehicle verified",
@@ -44,12 +47,17 @@ public class VehicleController {
     public ResponseEntity<ApiResponse<VerificationTokenResponse>> verifyForeign(
             @RequestParam String chassisNumber,
             @RequestParam TeslaModel teslaModel,
-            @RequestParam MultipartFile carteGrise) {
-        var result = vehicleVerificationService.verifyForeignVehicle(chassisNumber, teslaModel, carteGrise);
+            @RequestParam MultipartFile carteGrise,
+            HttpServletRequest httpRequest) {
+        var result = vehicleVerificationService.verifyForeignVehicle(
+                chassisNumber,
+                teslaModel,
+                carteGrise,
+                httpRequest.getRemoteAddr()
+        );
         return ResponseEntity.ok(ApiResponse.ok(
                 "Foreign vehicle registered",
                 new VerificationTokenResponse(result.verificationToken(), result.expiresInSeconds())
         ));
     }
 }
-

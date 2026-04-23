@@ -1,7 +1,9 @@
 package com.example.Telsa.web.controller;
 
 import com.example.Telsa.domain.service.AuthService;
+import com.example.Telsa.domain.service.EmailVerificationService;
 import com.example.Telsa.domain.service.UserRegistrationService;
+import com.example.Telsa.infrastructure.adapters.db.RefreshTokenRepository;
 import com.example.Telsa.web.dto.request.LoginRequest;
 import com.example.Telsa.web.dto.request.RefreshTokenRequest;
 import com.example.Telsa.web.dto.request.RegisterRequest;
@@ -10,12 +12,16 @@ import com.example.Telsa.web.dto.response.LoginResponse;
 import com.example.Telsa.web.dto.response.RegisterResponse;
 import com.example.Telsa.web.dto.response.TokenRefreshResponse;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -27,11 +33,14 @@ public class AuthController {
 
     private final UserRegistrationService userRegistrationService;
     private final AuthService authService;
+    private final EmailVerificationService emailVerificationService;
+    private final RefreshTokenRepository refreshTokenRepository;
 
     @PostMapping("/register")
     @Operation(summary = "Register a new user account")
     public ResponseEntity<ApiResponse<RegisterResponse>> register(
-            @Valid @RequestBody RegisterRequest request) {
+            @Valid @RequestBody RegisterRequest request,
+            HttpServletRequest httpRequest) {
         var user = userRegistrationService.registerUser(
                 request.getVerificationToken(),
                 request.getFirstName(),
@@ -39,7 +48,8 @@ public class AuthController {
                 request.getEmail(),
                 request.getPassword(),
                 request.getPhoneNumber(),
-                request.getCountryCode()
+                request.getCountryCode(),
+                httpRequest.getRemoteAddr()
         );
         return ResponseEntity.ok(ApiResponse.ok(
                 "Account created. Verify your phone.",
@@ -50,8 +60,9 @@ public class AuthController {
     @PostMapping("/login")
     @Operation(summary = "Login and trigger OTP")
     public ResponseEntity<ApiResponse<LoginResponse>> login(
-            @Valid @RequestBody LoginRequest request) {
-        var userId = authService.login(request.getEmail(), request.getPassword());
+            @Valid @RequestBody LoginRequest request,
+            HttpServletRequest httpRequest) {
+        var userId = authService.login(request.getEmail(), request.getPassword(), httpRequest.getRemoteAddr());
         return ResponseEntity.ok(ApiResponse.ok(
                 "OTP sent to your phone.",
                 new LoginResponse(userId, "OTP sent to your phone.", OTP_EXPIRES_SECONDS)
@@ -65,8 +76,24 @@ public class AuthController {
         var pair = authService.refreshAccessToken(request.getRefreshToken());
         return ResponseEntity.ok(ApiResponse.ok(
                 "Token refreshed",
-                new TokenRefreshResponse(pair.accessToken())
+                new TokenRefreshResponse(pair.accessToken(), pair.refreshToken())
         ));
     }
-}
 
+    @GetMapping("/verify-email")
+    @Operation(summary = "Verify user email")
+    public ResponseEntity<ApiResponse<Void>> verifyEmail(@RequestParam String token) {
+        emailVerificationService.verifyEmail(token);
+        return ResponseEntity.ok(ApiResponse.ok("Email verified successfully."));
+    }
+
+    @PostMapping("/logout")
+    @Operation(summary = "Logout and revoke refresh tokens")
+    public ResponseEntity<ApiResponse<Void>> logout() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof com.example.Telsa.domain.model.User user) {
+            refreshTokenRepository.deleteAllByUserId(user.getId());
+        }
+        return ResponseEntity.ok(ApiResponse.ok("Logged out successfully."));
+    }
+}

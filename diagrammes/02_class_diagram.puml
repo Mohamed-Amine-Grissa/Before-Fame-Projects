@@ -1,0 +1,313 @@
+@startuml ClassDiagram_Telsa
+' ———————————————————————————————————————————————
+' Diagramme de Classes — modèle du domaine
+' Telsa Charging Points (architecture DDD)
+' ———————————————————————————————————————————————
+
+skinparam backgroundColor #F4F1EC
+skinparam shadowing false
+skinparam defaultFontName "Inter Tight"
+skinparam ArrowColor #0A0A0B
+skinparam ClassBorderColor #0A0A0B
+skinparam ClassBackgroundColor #FFFFFF
+skinparam ClassHeaderBackgroundColor #EDE9E0
+skinparam ClassAttributeIconSize 0
+skinparam PackageBorderColor #0A0A0B
+skinparam PackageBackgroundColor #EDE9E0
+skinparam NoteBackgroundColor #FFF7D6
+skinparam NoteBorderColor #8A7400
+
+title <size:18><b>Telsa Charging Points</b></size>\n<size:12>Diagramme de classes — domaine & services</size>
+
+' ========= ENUMS =========
+package "Enumérations" as PKG_ENUM {
+
+  enum Role {
+    USER
+    ADMIN
+  }
+  enum TeslaModel {
+    MODEL_3
+    MODEL_Y
+    MODEL_S
+    MODEL_X
+    CYBERTRUCK
+  }
+  enum PlateType {
+    TN
+    RS
+    CD
+  }
+  enum VehicleOrigin {
+    LOCAL
+    FOREIGN
+  }
+  enum ChargingPortType {
+    NACS
+    CCS1
+    CCS2
+    CHADEMO
+    J1772
+  }
+  enum PortStatus {
+    AVAILABLE
+    IN_USE
+    OUT_OF_SERVICE
+  }
+  enum ReviewStatus {
+    PENDING
+    APPROVED
+    REJECTED
+  }
+}
+
+' ========= ENTITÉS DU DOMAINE =========
+package "Domaine  ::  Identité & Accès" as PKG_AUTH {
+
+  class User << (A,#E34E2C) aggregate root >> {
+    - id : UUID
+    - firstName : String
+    - lastName : String
+    - email : String
+    - passwordHash : String
+    - phoneNumber : String
+    - countryCode : String
+    - role : Role
+    - emailVerified : boolean
+    - failedAttempts : int
+    - lockedUntil : Instant
+    - createdAt : Instant
+    - lastLoginAt : Instant
+    + markEmailVerified() : void
+    + changePassword(raw : String) : void
+    + registerFailedAttempt() : void
+    + isLocked() : boolean
+    + unlock() : void
+  }
+
+  class RefreshToken {
+    - id : UUID
+    - tokenHash : String
+    - expiresAt : Instant
+    - revokedAt : Instant
+    - createdAt : Instant
+    + isValid(now : Instant) : boolean
+    + revoke() : void
+  }
+
+  class OtpCode {
+    - id : UUID
+    - codeHash : String
+    - expiresAt : Instant
+    - attempts : int
+    - usedAt : Instant
+    + verify(raw : String) : boolean
+    + consume() : void
+    + incrementAttempts() : void
+  }
+
+  class EmailVerificationToken {
+    - id : UUID
+    - token : String
+    - expiresAt : Instant
+    - usedAt : Instant
+    + isValid(now : Instant) : boolean
+    + consume() : void
+  }
+
+  class VerificationToken << value object >> {
+    - value : String
+    - vehicleRef : String
+    - teslaModel : TeslaModel
+    - origin : VehicleOrigin
+    - issuedAt : Instant
+    - expiresAt : Instant
+    - consumed : boolean
+    + isUsable(now : Instant) : boolean
+  }
+}
+
+package "Domaine  ::  Véhicules" as PKG_VEH {
+
+  class ErpTeslaLocal {
+    - id : UUID
+    - chassisNumber : String
+    - plateNumber : String
+    - plateType : PlateType
+    - teslaModel : TeslaModel
+    - registeredAt : Instant
+    + matches(vin : String, plate : String, type : PlateType) : boolean
+  }
+
+  class ErpTeslaForeign {
+    - id : UUID
+    - chassisNumber : String
+    - teslaModel : TeslaModel
+    - carteGrisePath : String
+    - reviewStatus : ReviewStatus
+    - submittedAt : Instant
+    - reviewedAt : Instant
+    - reviewerId : UUID
+    - rejectionReason : String
+    + approve(reviewer : UUID) : void
+    + reject(reviewer : UUID, reason : String) : void
+  }
+}
+
+package "Domaine  ::  Réseau de bornes" as PKG_STATION {
+
+  class Station {
+    - id : UUID
+    - name : String
+    - wilaya : String
+    - address : String
+    - latitude : double
+    - longitude : double
+    + distanceTo(lat : double, lng : double) : double
+    + hasPortFor(model : TeslaModel) : boolean
+  }
+
+  class ChargingPort {
+    - id : UUID
+    - type : ChargingPortType
+    - powerKw : int
+    - status : PortStatus
+    + isAvailableFor(model : TeslaModel) : boolean
+  }
+}
+
+package "Transverse  ::  Sécurité & Audit" as PKG_CROSS {
+
+  class RateLimitBucket << value object >> {
+    - key : String
+    - count : int
+    - resetAt : Instant
+    + allow() : boolean
+  }
+
+  class AuditEvent {
+    - id : UUID
+    - timestamp : Instant
+    - actor : String
+    - action : String
+    - ip : String
+    - details : String
+  }
+}
+
+' ========= SERVICES APPLICATIFS =========
+package "Services du domaine" as PKG_SVC {
+
+  class AuthService <<service>> {
+    + login(cmd : LoginCmd) : LoginResult
+    + refresh(token : String) : TokenPair
+    + logout(userId : UUID) : void
+  }
+  class UserRegistrationService <<service>> {
+    + register(cmd : RegisterCmd) : User
+  }
+  class VehicleVerificationService <<service>> {
+    + verifyLocal(cmd : LocalCmd) : VerificationToken
+    + verifyForeign(cmd : ForeignCmd) : VerificationToken
+  }
+  class OtpService <<service>> {
+    + issue(userId : UUID) : OtpCode
+    + verify(userId : UUID, raw : String) : boolean
+    + resend(userId : UUID) : void
+  }
+  class EmailVerificationService <<service>> {
+    + dispatch(user : User) : void
+    + confirm(token : String) : void
+  }
+  class LockService <<service>> {
+    + registerFailure(userId : UUID) : void
+    + isLocked(userId : UUID) : boolean
+  }
+  class RateLimiterService <<service>> {
+    + allow(key : String) : boolean
+  }
+  class JwtService <<service>> {
+    + sign(user : User) : String
+    + parse(token : String) : Claims
+  }
+}
+
+' ========= ASSOCIATIONS =========
+
+' User et ses jetons
+User "1" *-- "0..*" RefreshToken          : émet >
+User "1" *-- "0..*" OtpCode               : reçoit >
+User "1" o-- "0..1" EmailVerificationToken : confirme >
+User "1" -- "1"    Role                   : possède >
+
+' Vehicle verification
+VerificationToken --> "1" TeslaModel
+VerificationToken --> "1" VehicleOrigin
+ErpTeslaLocal    --> "1" TeslaModel
+ErpTeslaLocal    --> "1" PlateType
+ErpTeslaForeign  --> "1" TeslaModel
+ErpTeslaForeign  --> "1" ReviewStatus
+ErpTeslaForeign  ..> "0..1" User          : révisé par >
+
+' Association User ↔ Véhicule (identification à l'inscription)
+User "1" .. "1" VerificationToken         : consomme à l'inscription
+
+' Stations & ports
+Station "1" *-- "1..*" ChargingPort       : contient >
+ChargingPort --> "1" ChargingPortType
+ChargingPort --> "1" PortStatus
+
+' Services (dépendances)
+AuthService                 ..> User
+AuthService                 ..> RefreshToken
+AuthService                 ..> JwtService
+AuthService                 ..> OtpService
+AuthService                 ..> LockService
+AuthService                 ..> RateLimiterService
+UserRegistrationService     ..> User
+UserRegistrationService     ..> VerificationToken
+UserRegistrationService     ..> EmailVerificationService
+VehicleVerificationService  ..> ErpTeslaLocal
+VehicleVerificationService  ..> ErpTeslaForeign
+VehicleVerificationService  ..> VerificationToken
+VehicleVerificationService  ..> RateLimiterService
+OtpService                  ..> OtpCode
+OtpService                  ..> RateLimiterService
+EmailVerificationService    ..> EmailVerificationToken
+
+' Audit transverse
+AuthService                ..> AuditEvent : journalise >
+VehicleVerificationService ..> AuditEvent : journalise >
+OtpService                 ..> AuditEvent : journalise >
+
+' ========= NOTES =========
+note top of User
+  <b>Agrégat racine</b>
+  Invariants :
+  • email unique (ci)
+  • passwordHash ≠ plaintext (BCrypt)
+  • lockedUntil implique isLocked()
+end note
+
+note bottom of VerificationToken
+  <b>Jeton d'entrée</b>
+  Produit par VehicleVerificationService,
+  consommé exactement une fois par
+  UserRegistrationService.
+end note
+
+note right of RefreshToken
+  <b>Rotation systématique</b>
+  Chaque refresh révoque l'ancien
+  et en émet un nouveau.
+  Stocké sous forme de hash SHA-256.
+end note
+
+note right of Station
+  Recherche géospatiale :
+  <i>findNearby(lat, lng, model, year)</i>
+  renvoie les bornes compatibles
+  avec le connecteur du modèle.
+end note
+
+@enduml

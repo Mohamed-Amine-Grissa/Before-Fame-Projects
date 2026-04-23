@@ -1,0 +1,263 @@
+@startuml Sequence_Telsa
+' ———————————————————————————————————————————————
+' Diagramme de Séquence
+' Scénario nominal : onboarding complet d'un propriétaire Tesla local
+' → vérification véhicule → inscription → e-mail → login + OTP → accès protégé
+' ———————————————————————————————————————————————
+
+skinparam backgroundColor #F4F1EC
+skinparam shadowing false
+skinparam defaultFontName "Inter Tight"
+skinparam sequenceArrowThickness 1
+skinparam ArrowColor #0A0A0B
+skinparam ParticipantBorderColor #0A0A0B
+skinparam ParticipantBackgroundColor #FFFFFF
+skinparam ActorBorderColor #0A0A0B
+skinparam ActorBackgroundColor #F4F1EC
+skinparam SequenceLifeLineBorderColor #9A968E
+skinparam SequenceGroupBackgroundColor #EDE9E0
+skinparam SequenceGroupBorderColor #0A0A0B
+skinparam SequenceGroupHeaderFontColor #0A0A0B
+skinparam NoteBackgroundColor #FFF7D6
+skinparam NoteBorderColor #8A7400
+
+title <size:18><b>Telsa Charging Points</b></size>\n<size:12>Diagramme de séquence — onboarding complet & accès aux bornes</size>
+
+actor        "Propriétaire"       as U
+participant  "UI React"            as FE
+participant  "VehicleController"   as VC
+participant  "VehicleVerification\nService"  as VVS
+database     "ErpTeslaLocal\nRepository"     as ERPR
+participant  "RateLimiter\nService"          as RL
+participant  "AuthController"     as AC
+participant  "UserRegistration\nService"     as URS
+database     "User\nRepository"    as UR
+participant  "EmailVerification\nService"    as EVS
+participant  "SmtpEmailSender\n(SMTP)"       as SMTP
+participant  "OtpController"      as OC
+participant  "OtpService"         as OTP
+participant  "TwilioOtpSender\n(SMS)"        as TW
+participant  "AuthService"        as AS
+participant  "JwtService"         as JWT
+database     "RefreshToken\nRepository"      as RTR
+participant  "StationController" as SC
+database     "Station\nRepository" as SR
+
+' ═════════════════ PHASE 1 ═════════════════
+== Phase 1 · Vérification du véhicule (local) ==
+
+U  ->  FE : saisit VIN, plaque, type, modèle
+FE ->  VC : POST /api/vehicles/verify/local\n{chassisNumber, plateNumber, plateType, teslaModel}
+activate VC
+VC ->  RL  : allow(ip)
+activate RL
+RL --> VC  : true
+deactivate RL
+VC ->  VVS : verifyLocal(cmd)
+activate VVS
+VVS -> ERPR : findByChassisAndPlate(vin, plate)
+activate ERPR
+ERPR --> VVS : ErpTeslaLocal
+deactivate ERPR
+
+alt Correspondance trouvée
+  VVS --> VC : VerificationToken\n(valeur, expiresAt)
+  deactivate VVS
+  VC --> FE : 200 { data: { verificationToken } }
+  deactivate VC
+  FE -> FE : localStorage ← verificationToken
+else Aucune correspondance
+  VVS --> VC : throw VerificationFailed
+  VC  --> FE : 404 { error: "chassis not found" }
+end
+
+' ═════════════════ PHASE 2 ═════════════════
+== Phase 2 · Création du compte ==
+
+U  ->  FE : remplit le formulaire (nom, e-mail, password, tél.)
+FE ->  AC : POST /api/auth/register\n{verificationToken, firstName, ..., password}
+activate AC
+AC ->  URS : register(cmd)
+activate URS
+URS -> URS : valide le VerificationToken\n(non expiré, non consommé)
+URS -> UR  : existsByEmail(email)
+activate UR
+UR  --> URS : false
+deactivate UR
+URS -> URS : passwordHash ← BCrypt.hash(password)
+URS -> UR  : save(User{emailVerified=false})
+activate UR
+UR  --> URS : User (id)
+deactivate UR
+URS -> EVS : dispatch(user)
+activate EVS
+EVS -> EVS : crée EmailVerificationToken
+EVS -> SMTP : send(user.email, link)
+activate SMTP
+SMTP --> EVS : 250 OK
+deactivate SMTP
+EVS  --> URS : void
+deactivate EVS
+URS --> AC : User
+deactivate URS
+AC  --> FE : 201 { data: { userId } }
+deactivate AC
+FE  -> U  : "Vérifiez votre boîte mail"
+
+' ═════════════════ PHASE 3 ═════════════════
+== Phase 3 · Confirmation de l'e-mail ==
+
+U  ->  FE : clique sur le lien du mail
+FE ->  AC : GET /api/auth/verify-email?token=…
+activate AC
+AC ->  EVS : confirm(token)
+activate EVS
+EVS -> EVS : charge & consomme le EmailVerificationToken
+EVS -> UR  : findById(userId)
+activate UR
+UR  --> EVS : User
+deactivate UR
+EVS -> UR  : save(user.markEmailVerified())
+activate UR
+UR  --> EVS : ok
+deactivate UR
+EVS --> AC : void
+deactivate EVS
+AC  --> FE : 200 { message: "email verified" }
+deactivate AC
+
+' ═════════════════ PHASE 4 ═════════════════
+== Phase 4 · Connexion + challenge OTP ==
+
+U  ->  FE : saisit e-mail + mot de passe
+FE ->  AC : POST /api/auth/login {email, password}
+activate AC
+AC ->  RL  : allow("login:" + ip)
+activate RL
+RL --> AC  : true
+deactivate RL
+AC ->  AS  : login(cmd)
+activate AS
+AS ->  UR  : findByEmail(email)
+activate UR
+UR  --> AS : User
+deactivate UR
+AS ->  AS  : BCrypt.verify(password, hash)
+
+alt Mot de passe correct & compte actif
+  AS -> OTP : issue(userId)
+  activate OTP
+  OTP -> OTP : génère 6 chiffres, hash, TTL
+  OTP -> TW  : sendSms(phone, code)
+  activate TW
+  TW  --> OTP : 200 OK
+  deactivate TW
+  OTP --> AS : OtpCode (hashée en base)
+  deactivate OTP
+  AS  --> AC : { userId, otpRequired: true }
+  deactivate AS
+  AC  --> FE : 202 { data: { userId, otpRequired:true } }
+  deactivate AC
+  FE -> FE : route → /otp
+else Échec
+  AS -> AS : lockService.registerFailure(userId)
+  AS --> AC : throw InvalidCredentials
+  AC --> FE : 401 { error }
+end
+
+' ═════════════════ PHASE 5 ═════════════════
+== Phase 5 · Vérification OTP & émission des JWT ==
+
+U  ->  FE : saisit les 6 chiffres
+FE ->  OC : POST /api/otp/verify {userId, otp}
+activate OC
+OC ->  OTP : verify(userId, otp)
+activate OTP
+OTP -> OTP : charge dernier OtpCode non consommé
+OTP -> OTP : hash(otp) == codeHash ?
+alt Code valide
+  OTP -> OTP : consume()
+  OTP --> OC : true
+  deactivate OTP
+  OC ->  AS : issueTokens(userId)
+  activate AS
+  AS ->  JWT : sign(access, claims{role})
+  activate JWT
+  JWT --> AS : accessJwt
+  deactivate JWT
+  AS ->  JWT : sign(refresh)
+  activate JWT
+  JWT --> AS : refreshJwt
+  deactivate JWT
+  AS ->  RTR : save(RefreshToken{hash=SHA256(refreshJwt)})
+  activate RTR
+  RTR --> AS : ok
+  deactivate RTR
+  AS  --> OC : { accessToken, refreshToken, user }
+  deactivate AS
+  OC  --> FE : 200 { data: { accessToken, refreshToken } }
+  deactivate OC
+  FE -> FE : setTokens() + redirige vers /app
+else Code invalide
+  OTP -> OTP : incrementAttempts()
+  OTP --> OC : false
+  OC  --> FE : 401 { error: "otp invalid" }
+end
+
+' ═════════════════ PHASE 6 ═════════════════
+== Phase 6 · Accès aux ressources protégées ==
+
+U  ->  FE : ouvre la carte des bornes
+FE ->  SC : GET /api/stations/nearby?lat&lng&teslaModel\nAuthorization: Bearer <access>
+activate SC
+SC ->  JWT : parse(access)
+activate JWT
+JWT --> SC : Claims{userId, role}
+deactivate JWT
+SC ->  SR  : findNearby(lat, lng, model)
+activate SR
+SR  --> SC : List<Station>
+deactivate SR
+SC  --> FE : 200 { data: [ stations ] }
+deactivate SC
+
+' ═════════════════ PHASE 7 (bonus) ═════════════════
+== Phase 7 · Rotation du refresh token ==
+
+FE ->  AC : POST /api/auth/refresh {refreshToken}
+activate AC
+AC ->  AS : refresh(refreshToken)
+activate AS
+AS ->  RTR : findByHash(SHA256(refreshToken))
+activate RTR
+RTR --> AS : RefreshToken
+deactivate RTR
+AS ->  AS : vérifie !revoked && !expired
+AS ->  RTR : revoke(oldToken)
+activate RTR
+RTR --> AS : ok
+deactivate RTR
+AS ->  JWT : sign(newAccess), sign(newRefresh)
+activate JWT
+JWT --> AS : paire de jetons
+deactivate JWT
+AS ->  RTR : save(newRefreshTokenHash)
+activate RTR
+RTR --> AS : ok
+deactivate RTR
+AS  --> AC : { accessToken, refreshToken }
+deactivate AS
+AC  --> FE : 200 { data }
+deactivate AC
+
+note over FE, JWT
+  <b>Invariants de sécurité</b>
+  • Toute réponse est enveloppée :
+    { success, message, data, timestamp }
+  • Un 401 sur ressource protégée déclenche
+    une tentative de refresh côté client.
+  • Les refresh tokens sont stockés hashés
+    (SHA-256) — jamais en clair.
+end note
+
+@enduml

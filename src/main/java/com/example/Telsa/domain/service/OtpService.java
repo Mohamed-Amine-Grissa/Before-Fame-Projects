@@ -6,6 +6,7 @@ import com.example.Telsa.domain.exception.OtpExpiredException;
 import com.example.Telsa.domain.model.User;
 import com.example.Telsa.domain.ports.OtpSender;
 import com.example.Telsa.infrastructure.adapters.db.UserRepository;
+import com.example.Telsa.infrastructure.config.AuditLogger;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +31,7 @@ public class OtpService {
     private final OtpSender otpSender;
     private final UserRepository userRepository;
     private final LockService lockService;
+    private final AuditLogger auditLogger;
 
     @Value("${otp.expiration-minutes}")
     private int expirationMinutes;
@@ -68,27 +70,32 @@ public class OtpService {
 
         otpStore.put(userId, new OtpEntry(code, expiresAt, maxRetries, fullPhone, now));
         otpSender.sendOtp(fullPhone, code, expirationMinutes);
+        auditLogger.logOtpSend(userId, fullPhone);
         log.info("OTP sent to userId: {}", userId);
     }
 
     public VerifyOtpResult verifyOtp(UUID userId, String providedOtp) {
         OtpEntry entry = otpStore.get(userId);
         if (entry == null) {
+            auditLogger.logOtpVerify(userId, false);
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No active OTP session found");
         }
 
         if (lockService.isLocked(userId.toString())) {
             long retryAfterSeconds = lockService.getRetryAfterSeconds(userId.toString());
+            auditLogger.logOtpVerify(userId, false);
             throw new AccountLockedException(retryAfterSeconds);
         }
 
         if (Instant.now().isAfter(entry.expiresAt())) {
             otpStore.remove(userId);
+            auditLogger.logOtpVerify(userId, false);
             throw new OtpExpiredException("OTP has expired. Please request a new one.");
         }
 
         if (entry.retriesRemaining() == 0) {
             otpStore.remove(userId);
+            auditLogger.logOtpVerify(userId, false);
             throw new MaxOtpRetriesException("Maximum retries exceeded.");
         }
 
@@ -98,10 +105,12 @@ public class OtpService {
 
             if (retriesRemaining == 0) {
                 otpStore.remove(userId);
+                auditLogger.logOtpVerify(userId, false);
                 throw new MaxOtpRetriesException("Invalid OTP. No retries remaining.");
             }
 
             otpStore.put(userId, new OtpEntry(entry.code(), entry.expiresAt(), retriesRemaining, entry.fullPhoneNumber(), entry.sentAt()));
+            auditLogger.logOtpVerify(userId, false);
             return new VerifyOtpResult(false, retriesRemaining, null, null);
         }
 
@@ -111,6 +120,7 @@ public class OtpService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found."));
         user.setVerified(true);
         userRepository.save(user);
+        auditLogger.logOtpVerify(userId, true);
         return new VerifyOtpResult(true, 0, null, null);
     }
 

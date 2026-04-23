@@ -1,0 +1,438 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2520 3754" font-family="Inter Tight, sans-serif">
+<rect width="2520" height="3754" fill="#F4F1EC"/>
+<text x="1260.0" y="48" text-anchor="middle" font-size="22" font-weight="800" fill="#0A0A0B">Telsa Charging Points</text>
+<text x="1260.0" y="72" text-anchor="middle" font-size="13" fill="#9A968E">Diagramme de séquence — onboarding complet &amp; accès aux bornes (scénario nominal)</text>
+<line x1="120" y1="92" x2="2400" y2="92" stroke="#0A0A0B" stroke-width="0.6"/>
+<line x1="100" y1="250" x2="100" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="230" y1="250" x2="230" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="360" y1="250" x2="360" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="490" y1="250" x2="490" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="620" y1="250" x2="620" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="750" y1="250" x2="750" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="880" y1="250" x2="880" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1010" y1="250" x2="1010" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1140" y1="250" x2="1140" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1270" y1="250" x2="1270" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1400" y1="250" x2="1400" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1530" y1="250" x2="1530" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1660" y1="250" x2="1660" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1790" y1="250" x2="1790" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="1920" y1="250" x2="1920" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="2050" y1="250" x2="2050" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="2180" y1="250" x2="2180" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="2310" y1="250" x2="2310" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="2440" y1="250" x2="2440" y2="3594" stroke="#9A968E" stroke-width="1" stroke-dasharray="4 4"/>
+<circle cx="100" cy="198" r="10" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="1.6"/>
+<line x1="100" y1="208" x2="100" y2="232" stroke="#0A0A0B" stroke-width="1.6"/>
+<line x1="88" y1="216" x2="112" y2="216" stroke="#0A0A0B" stroke-width="1.6"/>
+<line x1="100" y1="232" x2="90" y2="250" stroke="#0A0A0B" stroke-width="1.6"/>
+<line x1="100" y1="232" x2="110" y2="250" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="100" y="268" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">Propriétaire</text>
+<rect x="172.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="230" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">UI React</text>
+<rect x="302.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="360" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">VehicleController</text>
+<rect x="432.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="490" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">VehicleVerification</text>
+<text x="490" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Service</text>
+<path d="M 562.0 188 v 44 a 58.0 8 0 0 0 116 0 v -44 a 58.0 8 0 0 0 -116 0 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+<path d="M 562.0 188 a 58.0 8 0 0 0 116 0" fill="none" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="620" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">ErpTeslaLocal</text>
+<text x="620" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Repository</text>
+<rect x="692.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="750" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">RateLimiter</text>
+<text x="750" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Service</text>
+<rect x="822.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="880" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">AuthController</text>
+<rect x="952.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1010" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">UserRegistration</text>
+<text x="1010" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Service</text>
+<path d="M 1082.0 188 v 44 a 58.0 8 0 0 0 116 0 v -44 a 58.0 8 0 0 0 -116 0 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+<path d="M 1082.0 188 a 58.0 8 0 0 0 116 0" fill="none" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1140" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">User</text>
+<text x="1140" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Repository</text>
+<rect x="1212.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1270" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">EmailVerification</text>
+<text x="1270" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Service</text>
+<rect x="1342.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1400" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">SmtpEmailSender</text>
+<text x="1400" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">SMTP</text>
+<rect x="1472.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1530" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">OtpController</text>
+<rect x="1602.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1660" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">OtpService</text>
+<rect x="1732.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1790" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">TwilioOtpSender</text>
+<text x="1790" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">SMS</text>
+<rect x="1862.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="1920" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">AuthService</text>
+<rect x="1992.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="2050" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">JwtService</text>
+<path d="M 2122.0 188 v 44 a 58.0 8 0 0 0 116 0 v -44 a 58.0 8 0 0 0 -116 0 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+<path d="M 2122.0 188 a 58.0 8 0 0 0 116 0" fill="none" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="2180" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">RefreshToken</text>
+<text x="2180" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Repository</text>
+<rect x="2252.0" y="178" width="116" height="64" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="2310" y="214.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">StationController</text>
+<path d="M 2382.0 188 v 44 a 58.0 8 0 0 0 116 0 v -44 a 58.0 8 0 0 0 -116 0 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+<path d="M 2382.0 188 a 58.0 8 0 0 0 116 0" fill="none" stroke="#0A0A0B" stroke-width="1.4"/>
+<text x="2440" y="208.0" text-anchor="middle" font-size="11" font-weight="700" fill="#0A0A0B">Station</text>
+<text x="2440" y="224.0" text-anchor="middle" font-size="10" fill="#9A968E">Repository</text>
+<rect x="40" y="276" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="293" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 1 · Vérification du véhicule (local)  ≡</text>
+<rect x="60" y="534" width="2400" height="202" fill="none" stroke="#0A0A0B" stroke-width="1.4" stroke-dasharray="4 3"/>
+<path d="M 60 534 h 60 l -8 16 h -52 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="68" y="546" font-size="10" font-weight="700" fill="#0A0A0B">alt</text>
+<text x="140" y="548" font-size="11" font-style="italic" fill="#0A0A0B">[ Correspondance trouvée ]</text>
+<line x1="60" y1="646" x2="2460" y2="646" stroke="#0A0A0B" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="70" y="662" font-size="11" font-style="italic" fill="#0A0A0B">[ else — Aucune correspondance ]</text>
+<rect x="40" y="736" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="753" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 2 · Création du compte  ≡</text>
+<rect x="40" y="1282" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="1299" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 3 · Confirmation de l'e-mail  ≡</text>
+<rect x="40" y="1620" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="1637" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 4 · Connexion + challenge OTP  ≡</text>
+<rect x="60" y="1912" width="2400" height="314" fill="none" stroke="#0A0A0B" stroke-width="1.4" stroke-dasharray="4 3"/>
+<path d="M 60 1912 h 60 l -8 16 h -52 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="68" y="1924" font-size="10" font-weight="700" fill="#0A0A0B">alt</text>
+<text x="140" y="1926" font-size="11" font-style="italic" fill="#0A0A0B">[ Mot de passe correct &amp; compte actif ]</text>
+<line x1="60" y1="2136" x2="2460" y2="2136" stroke="#0A0A0B" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="70" y="2152" font-size="11" font-style="italic" fill="#0A0A0B">[ else — Échec ]</text>
+<rect x="40" y="2226" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="2243" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 5 · Vérification OTP &amp; émission des JWT  ≡</text>
+<rect x="60" y="2440" width="2400" height="460" fill="none" stroke="#0A0A0B" stroke-width="1.4" stroke-dasharray="4 3"/>
+<path d="M 60 2440 h 60 l -8 16 h -52 z" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="68" y="2452" font-size="10" font-weight="700" fill="#0A0A0B">alt</text>
+<text x="140" y="2454" font-size="11" font-style="italic" fill="#0A0A0B">[ Code valide ]</text>
+<line x1="60" y1="2776" x2="2460" y2="2776" stroke="#0A0A0B" stroke-width="1" stroke-dasharray="3 3"/>
+<text x="70" y="2792" font-size="11" font-style="italic" fill="#0A0A0B">[ else — Code invalide ]</text>
+<rect x="40" y="2900" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="2917" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 6 · Accès aux ressources protégées  ≡</text>
+<rect x="40" y="3148" width="2440" height="26" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1"/>
+<text x="1260.0" y="3165" text-anchor="middle" font-size="12" font-weight="800" fill="#0A0A0B">≡  Phase 7 · Rotation du refresh token (bonus)  ≡</text>
+<rect x="746.0" y="408" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="746.0" y="1752" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="616.0" y="492" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="486.0" y="464" width="8" height="120" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="356.0" y="380" width="8" height="232" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1136.0" y="930" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1136.0" y="1020" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1136.0" y="1476" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1136.0" y="1532" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1136.0" y="1836" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1396.0" y="1138" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1266.0" y="1076" width="8" height="122" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1266.0" y="1414" width="8" height="178" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1006.0" y="868" width="8" height="358" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="876.0" y="840" width="8" height="414" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="876.0" y="1386" width="8" height="234" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="876.0" y="1724" width="8" height="412" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="876.0" y="3224" width="8" height="346" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1786.0" y="2020" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1656.0" y="1958" width="8" height="122" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1656.0" y="2358" width="8" height="166" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1916.0" y="1808" width="8" height="300" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1916.0" y="2548" width="8" height="200" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1916.0" y="3252" width="8" height="290" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2046.0" y="2576" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2046.0" y="2632" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2046.0" y="3032" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2046.0" y="3426" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2176.0" y="2688" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2176.0" y="3280" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2176.0" y="3370" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2176.0" y="3482" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="1526.0" y="2330" width="8" height="446" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2436.0" y="3088" width="8" height="32" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<rect x="2306.0" y="3004" width="8" height="144" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.1"/>
+<line x1="100" y1="332" x2="230" y2="332" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="230,332 223,328 223,336" fill="#0A0A0B"/>
+<text x="165.0" y="327" text-anchor="middle" font-size="10.5" fill="#0A0A0B">saisit VIN, plaque, type, modèle</text>
+<line x1="230" y1="360" x2="360" y2="360" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="360,360 353,356 353,364" fill="#0A0A0B"/>
+<text x="295.0" y="355" text-anchor="middle" font-size="10.5" fill="#0A0A0B">POST /api/vehicles/verify/local {chassis, plate, type, model}</text>
+<line x1="360" y1="388" x2="750" y2="388" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="750,388 743,384 743,392" fill="#0A0A0B"/>
+<text x="555.0" y="383" text-anchor="middle" font-size="10.5" fill="#0A0A0B">allow(ip)</text>
+<line x1="750" y1="416" x2="360" y2="416" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="367,412 360,416 367,420" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="411" text-anchor="middle" font-size="10.5" fill="#0A0A0B">true</text>
+<line x1="360" y1="444" x2="490" y2="444" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="490,444 483,440 483,448" fill="#0A0A0B"/>
+<text x="425.0" y="439" text-anchor="middle" font-size="10.5" fill="#0A0A0B">verifyLocal(cmd)</text>
+<line x1="490" y1="472" x2="620" y2="472" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="620,472 613,468 613,476" fill="#0A0A0B"/>
+<text x="555.0" y="467" text-anchor="middle" font-size="10.5" fill="#0A0A0B">findByChassisAndPlate(vin, plate)</text>
+<line x1="620" y1="500" x2="490" y2="500" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="497,496 490,500 497,504" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="495" text-anchor="middle" font-size="10.5" fill="#0A0A0B">ErpTeslaLocal</text>
+<line x1="490" y1="560" x2="360" y2="560" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="367,556 360,560 367,564" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="425.0" y="555" text-anchor="middle" font-size="10.5" fill="#0A0A0B">VerificationToken (value, expiresAt)</text>
+<line x1="360" y1="588" x2="230" y2="588" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,584 230,588 237,592" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="295.0" y="583" text-anchor="middle" font-size="10.5" fill="#0A0A0B">200 { data: { verificationToken } }</text>
+<path d="M 230 610 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="230,628 237,624 237,632" fill="#0A0A0B"/>
+<text x="274" y="618" font-size="10.5" fill="#0A0A0B">localStorage ← verificationToken</text>
+<line x1="490" y1="676" x2="360" y2="676" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="367,672 360,676 367,680" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="425.0" y="671" text-anchor="middle" font-size="10.5" fill="#0A0A0B">throw VerificationFailed</text>
+<line x1="360" y1="704" x2="230" y2="704" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,700 230,704 237,708" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="295.0" y="699" text-anchor="middle" font-size="10.5" fill="#0A0A0B">404 { error: 'chassis not found' }</text>
+<line x1="100" y1="792" x2="230" y2="792" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="230,792 223,788 223,796" fill="#0A0A0B"/>
+<text x="165.0" y="787" text-anchor="middle" font-size="10.5" fill="#0A0A0B">remplit le formulaire (nom, email, password, tél.)</text>
+<line x1="230" y1="820" x2="880" y2="820" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="880,820 873,816 873,824" fill="#0A0A0B"/>
+<text x="555.0" y="815" text-anchor="middle" font-size="10.5" fill="#0A0A0B">POST /api/auth/register { verificationToken, ... }</text>
+<line x1="880" y1="848" x2="1010" y2="848" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1010,848 1003,844 1003,852" fill="#0A0A0B"/>
+<text x="945.0" y="843" text-anchor="middle" font-size="10.5" fill="#0A0A0B">register(cmd)</text>
+<path d="M 1010 870 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1010,888 1017,884 1017,892" fill="#0A0A0B"/>
+<text x="1054" y="878" font-size="10.5" fill="#0A0A0B">valide VerificationToken (non expiré, non consommé)</text>
+<line x1="1010" y1="910" x2="1140" y2="910" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1140,910 1133,906 1133,914" fill="#0A0A0B"/>
+<text x="1075.0" y="905" text-anchor="middle" font-size="10.5" fill="#0A0A0B">existsByEmail(email)</text>
+<line x1="1140" y1="938" x2="1010" y2="938" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1017,934 1010,938 1017,942" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1075.0" y="933" text-anchor="middle" font-size="10.5" fill="#0A0A0B">false</text>
+<path d="M 1010 960 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1010,978 1017,974 1017,982" fill="#0A0A0B"/>
+<text x="1054" y="968" font-size="10.5" fill="#0A0A0B">passwordHash ← BCrypt.hash(password)</text>
+<line x1="1010" y1="1000" x2="1140" y2="1000" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1140,1000 1133,996 1133,1004" fill="#0A0A0B"/>
+<text x="1075.0" y="995" text-anchor="middle" font-size="10.5" fill="#0A0A0B">save(User{emailVerified=false})</text>
+<line x1="1140" y1="1028" x2="1010" y2="1028" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1017,1024 1010,1028 1017,1032" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1075.0" y="1023" text-anchor="middle" font-size="10.5" fill="#0A0A0B">User (id)</text>
+<line x1="1010" y1="1056" x2="1270" y2="1056" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1270,1056 1263,1052 1263,1060" fill="#0A0A0B"/>
+<text x="1140.0" y="1051" text-anchor="middle" font-size="10.5" fill="#0A0A0B">dispatch(user)</text>
+<path d="M 1270 1078 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1270,1096 1277,1092 1277,1100" fill="#0A0A0B"/>
+<text x="1314" y="1086" font-size="10.5" fill="#0A0A0B">crée EmailVerificationToken</text>
+<line x1="1270" y1="1118" x2="1400" y2="1118" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1400,1118 1393,1114 1393,1122" fill="#0A0A0B"/>
+<text x="1335.0" y="1113" text-anchor="middle" font-size="10.5" fill="#0A0A0B">send(user.email, link)</text>
+<line x1="1400" y1="1146" x2="1270" y2="1146" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1277,1142 1270,1146 1277,1150" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1335.0" y="1141" text-anchor="middle" font-size="10.5" fill="#0A0A0B">250 OK</text>
+<line x1="1270" y1="1174" x2="1010" y2="1174" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1017,1170 1010,1174 1017,1178" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1140.0" y="1169" text-anchor="middle" font-size="10.5" fill="#0A0A0B">void</text>
+<line x1="1010" y1="1202" x2="880" y2="1202" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="887,1198 880,1202 887,1206" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="945.0" y="1197" text-anchor="middle" font-size="10.5" fill="#0A0A0B">User</text>
+<line x1="880" y1="1230" x2="230" y2="1230" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,1226 230,1230 237,1234" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="1225" text-anchor="middle" font-size="10.5" fill="#0A0A0B">201 { data: { userId } }</text>
+<line x1="230" y1="1258" x2="100" y2="1258" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="107,1254 100,1258 107,1262" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="165.0" y="1253" text-anchor="middle" font-size="10.5" fill="#0A0A0B">« Vérifiez votre boîte mail »</text>
+<line x1="100" y1="1338" x2="230" y2="1338" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="230,1338 223,1334 223,1342" fill="#0A0A0B"/>
+<text x="165.0" y="1333" text-anchor="middle" font-size="10.5" fill="#0A0A0B">clique sur le lien du mail</text>
+<line x1="230" y1="1366" x2="880" y2="1366" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="880,1366 873,1362 873,1370" fill="#0A0A0B"/>
+<text x="555.0" y="1361" text-anchor="middle" font-size="10.5" fill="#0A0A0B">GET /api/auth/verify-email?token=…</text>
+<line x1="880" y1="1394" x2="1270" y2="1394" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1270,1394 1263,1390 1263,1398" fill="#0A0A0B"/>
+<text x="1075.0" y="1389" text-anchor="middle" font-size="10.5" fill="#0A0A0B">confirm(token)</text>
+<path d="M 1270 1416 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1270,1434 1277,1430 1277,1438" fill="#0A0A0B"/>
+<text x="1314" y="1424" font-size="10.5" fill="#0A0A0B">charge &amp; consomme EmailVerificationToken</text>
+<line x1="1270" y1="1456" x2="1140" y2="1456" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1140,1456 1147,1452 1147,1460" fill="#0A0A0B"/>
+<text x="1205.0" y="1451" text-anchor="middle" font-size="10.5" fill="#0A0A0B">findById(userId)</text>
+<line x1="1140" y1="1484" x2="1270" y2="1484" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1263,1480 1270,1484 1263,1488" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1205.0" y="1479" text-anchor="middle" font-size="10.5" fill="#0A0A0B">User</text>
+<line x1="1270" y1="1512" x2="1140" y2="1512" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1140,1512 1147,1508 1147,1516" fill="#0A0A0B"/>
+<text x="1205.0" y="1507" text-anchor="middle" font-size="10.5" fill="#0A0A0B">save(user.markEmailVerified())</text>
+<line x1="1140" y1="1540" x2="1270" y2="1540" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1263,1536 1270,1540 1263,1544" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1205.0" y="1535" text-anchor="middle" font-size="10.5" fill="#0A0A0B">ok</text>
+<line x1="1270" y1="1568" x2="880" y2="1568" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="887,1564 880,1568 887,1572" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1075.0" y="1563" text-anchor="middle" font-size="10.5" fill="#0A0A0B">void</text>
+<line x1="880" y1="1596" x2="230" y2="1596" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,1592 230,1596 237,1600" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="1591" text-anchor="middle" font-size="10.5" fill="#0A0A0B">200 { message: 'email verified' }</text>
+<line x1="100" y1="1676" x2="230" y2="1676" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="230,1676 223,1672 223,1680" fill="#0A0A0B"/>
+<text x="165.0" y="1671" text-anchor="middle" font-size="10.5" fill="#0A0A0B">saisit e-mail + mot de passe</text>
+<line x1="230" y1="1704" x2="880" y2="1704" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="880,1704 873,1700 873,1708" fill="#0A0A0B"/>
+<text x="555.0" y="1699" text-anchor="middle" font-size="10.5" fill="#0A0A0B">POST /api/auth/login {email, password}</text>
+<line x1="880" y1="1732" x2="750" y2="1732" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="750,1732 757,1728 757,1736" fill="#0A0A0B"/>
+<text x="815.0" y="1727" text-anchor="middle" font-size="10.5" fill="#0A0A0B">allow('login:' + ip)</text>
+<line x1="750" y1="1760" x2="880" y2="1760" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="873,1756 880,1760 873,1764" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="815.0" y="1755" text-anchor="middle" font-size="10.5" fill="#0A0A0B">true</text>
+<line x1="880" y1="1788" x2="1920" y2="1788" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1920,1788 1913,1784 1913,1792" fill="#0A0A0B"/>
+<text x="1400.0" y="1783" text-anchor="middle" font-size="10.5" fill="#0A0A0B">login(cmd)</text>
+<line x1="1920" y1="1816" x2="1140" y2="1816" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1140,1816 1147,1812 1147,1820" fill="#0A0A0B"/>
+<text x="1530.0" y="1811" text-anchor="middle" font-size="10.5" fill="#0A0A0B">findByEmail(email)</text>
+<line x1="1140" y1="1844" x2="1920" y2="1844" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1913,1840 1920,1844 1913,1848" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1530.0" y="1839" text-anchor="middle" font-size="10.5" fill="#0A0A0B">User</text>
+<path d="M 1920 1866 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1920,1884 1927,1880 1927,1888" fill="#0A0A0B"/>
+<text x="1964" y="1874" font-size="10.5" fill="#0A0A0B">BCrypt.verify(password, hash)</text>
+<line x1="1920" y1="1938" x2="1660" y2="1938" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1660,1938 1667,1934 1667,1942" fill="#0A0A0B"/>
+<text x="1790.0" y="1933" text-anchor="middle" font-size="10.5" fill="#0A0A0B">issue(userId)</text>
+<path d="M 1660 1960 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1660,1978 1667,1974 1667,1982" fill="#0A0A0B"/>
+<text x="1704" y="1968" font-size="10.5" fill="#0A0A0B">génère 6 chiffres, hash, TTL</text>
+<line x1="1660" y1="2000" x2="1790" y2="2000" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1790,2000 1783,1996 1783,2004" fill="#0A0A0B"/>
+<text x="1725.0" y="1995" text-anchor="middle" font-size="10.5" fill="#0A0A0B">sendSms(phone, code)</text>
+<line x1="1790" y1="2028" x2="1660" y2="2028" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1667,2024 1660,2028 1667,2032" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1725.0" y="2023" text-anchor="middle" font-size="10.5" fill="#0A0A0B">200 OK</text>
+<line x1="1660" y1="2056" x2="1920" y2="2056" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1913,2052 1920,2056 1913,2060" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1790.0" y="2051" text-anchor="middle" font-size="10.5" fill="#0A0A0B">OtpCode (hashé en base)</text>
+<line x1="1920" y1="2084" x2="880" y2="2084" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="887,2080 880,2084 887,2088" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1400.0" y="2079" text-anchor="middle" font-size="10.5" fill="#0A0A0B">{ userId, otpRequired: true }</text>
+<line x1="880" y1="2112" x2="230" y2="2112" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,2108 230,2112 237,2116" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="2107" text-anchor="middle" font-size="10.5" fill="#0A0A0B">202 { data: { otpRequired: true } }</text>
+<line x1="1920" y1="2166" x2="880" y2="2166" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="887,2162 880,2166 887,2170" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1400.0" y="2161" text-anchor="middle" font-size="10.5" fill="#0A0A0B">throw InvalidCredentials</text>
+<line x1="880" y1="2194" x2="230" y2="2194" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,2190 230,2194 237,2198" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="2189" text-anchor="middle" font-size="10.5" fill="#0A0A0B">401 { error }</text>
+<line x1="100" y1="2282" x2="230" y2="2282" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="230,2282 223,2278 223,2286" fill="#0A0A0B"/>
+<text x="165.0" y="2277" text-anchor="middle" font-size="10.5" fill="#0A0A0B">saisit les 6 chiffres</text>
+<line x1="230" y1="2310" x2="1530" y2="2310" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1530,2310 1523,2306 1523,2314" fill="#0A0A0B"/>
+<text x="880.0" y="2305" text-anchor="middle" font-size="10.5" fill="#0A0A0B">POST /api/otp/verify {userId, otp}</text>
+<line x1="1530" y1="2338" x2="1660" y2="2338" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1660,2338 1653,2334 1653,2342" fill="#0A0A0B"/>
+<text x="1595.0" y="2333" text-anchor="middle" font-size="10.5" fill="#0A0A0B">verify(userId, otp)</text>
+<path d="M 1660 2360 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1660,2378 1667,2374 1667,2382" fill="#0A0A0B"/>
+<text x="1704" y="2368" font-size="10.5" fill="#0A0A0B">charge dernier OtpCode non consommé</text>
+<path d="M 1660 2394 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1660,2412 1667,2408 1667,2416" fill="#0A0A0B"/>
+<text x="1704" y="2402" font-size="10.5" fill="#0A0A0B">hash(otp) == codeHash ?</text>
+<path d="M 1660 2460 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1660,2478 1667,2474 1667,2482" fill="#0A0A0B"/>
+<text x="1704" y="2468" font-size="10.5" fill="#0A0A0B">consume()</text>
+<line x1="1660" y1="2500" x2="1530" y2="2500" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1537,2496 1530,2500 1537,2504" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1595.0" y="2495" text-anchor="middle" font-size="10.5" fill="#0A0A0B">true</text>
+<line x1="1530" y1="2528" x2="1920" y2="2528" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1920,2528 1913,2524 1913,2532" fill="#0A0A0B"/>
+<text x="1725.0" y="2523" text-anchor="middle" font-size="10.5" fill="#0A0A0B">issueTokens(userId)</text>
+<line x1="1920" y1="2556" x2="2050" y2="2556" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2050,2556 2043,2552 2043,2560" fill="#0A0A0B"/>
+<text x="1985.0" y="2551" text-anchor="middle" font-size="10.5" fill="#0A0A0B">sign(access, claims{role})</text>
+<line x1="2050" y1="2584" x2="1920" y2="2584" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,2580 1920,2584 1927,2588" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1985.0" y="2579" text-anchor="middle" font-size="10.5" fill="#0A0A0B">accessJwt</text>
+<line x1="1920" y1="2612" x2="2050" y2="2612" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2050,2612 2043,2608 2043,2616" fill="#0A0A0B"/>
+<text x="1985.0" y="2607" text-anchor="middle" font-size="10.5" fill="#0A0A0B">sign(refresh)</text>
+<line x1="2050" y1="2640" x2="1920" y2="2640" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,2636 1920,2640 1927,2644" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1985.0" y="2635" text-anchor="middle" font-size="10.5" fill="#0A0A0B">refreshJwt</text>
+<line x1="1920" y1="2668" x2="2180" y2="2668" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2180,2668 2173,2664 2173,2672" fill="#0A0A0B"/>
+<text x="2050.0" y="2663" text-anchor="middle" font-size="10.5" fill="#0A0A0B">save(RefreshToken{hash=SHA-256(jwt)})</text>
+<line x1="2180" y1="2696" x2="1920" y2="2696" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,2692 1920,2696 1927,2700" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="2050.0" y="2691" text-anchor="middle" font-size="10.5" fill="#0A0A0B">ok</text>
+<line x1="1920" y1="2724" x2="1530" y2="2724" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1537,2720 1530,2724 1537,2728" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1725.0" y="2719" text-anchor="middle" font-size="10.5" fill="#0A0A0B">{ accessToken, refreshToken, user }</text>
+<line x1="1530" y1="2752" x2="230" y2="2752" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,2748 230,2752 237,2756" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="880.0" y="2747" text-anchor="middle" font-size="10.5" fill="#0A0A0B">200 { data: { tokens } }</text>
+<path d="M 1660 2800 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1660,2818 1667,2814 1667,2822" fill="#0A0A0B"/>
+<text x="1704" y="2808" font-size="10.5" fill="#0A0A0B">incrementAttempts()</text>
+<line x1="1660" y1="2840" x2="1530" y2="2840" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1537,2836 1530,2840 1537,2844" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1595.0" y="2835" text-anchor="middle" font-size="10.5" fill="#0A0A0B">false</text>
+<line x1="1530" y1="2868" x2="230" y2="2868" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,2864 230,2868 237,2872" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="880.0" y="2863" text-anchor="middle" font-size="10.5" fill="#0A0A0B">401 { error: 'otp invalid' }</text>
+<line x1="100" y1="2956" x2="230" y2="2956" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="230,2956 223,2952 223,2960" fill="#0A0A0B"/>
+<text x="165.0" y="2951" text-anchor="middle" font-size="10.5" fill="#0A0A0B">ouvre la carte des bornes</text>
+<line x1="230" y1="2984" x2="2310" y2="2984" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2310,2984 2303,2980 2303,2988" fill="#0A0A0B"/>
+<text x="1270.0" y="2979" text-anchor="middle" font-size="10.5" fill="#0A0A0B">GET /api/stations/nearby?lat&amp;lng&amp;model  Bearer &lt;access&gt;</text>
+<line x1="2310" y1="3012" x2="2050" y2="3012" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2050,3012 2057,3008 2057,3016" fill="#0A0A0B"/>
+<text x="2180.0" y="3007" text-anchor="middle" font-size="10.5" fill="#0A0A0B">parse(access)</text>
+<line x1="2050" y1="3040" x2="2310" y2="3040" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="2303,3036 2310,3040 2303,3044" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="2180.0" y="3035" text-anchor="middle" font-size="10.5" fill="#0A0A0B">Claims { userId, role }</text>
+<line x1="2310" y1="3068" x2="2440" y2="3068" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2440,3068 2433,3064 2433,3072" fill="#0A0A0B"/>
+<text x="2375.0" y="3063" text-anchor="middle" font-size="10.5" fill="#0A0A0B">findNearby(lat, lng, model)</text>
+<line x1="2440" y1="3096" x2="2310" y2="3096" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="2317,3092 2310,3096 2317,3100" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="2375.0" y="3091" text-anchor="middle" font-size="10.5" fill="#0A0A0B">List&lt;Station&gt;</text>
+<line x1="2310" y1="3124" x2="230" y2="3124" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,3120 230,3124 237,3128" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1270.0" y="3119" text-anchor="middle" font-size="10.5" fill="#0A0A0B">200 { data: [ stations ] }</text>
+<line x1="230" y1="3204" x2="880" y2="3204" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="880,3204 873,3200 873,3208" fill="#0A0A0B"/>
+<text x="555.0" y="3199" text-anchor="middle" font-size="10.5" fill="#0A0A0B">POST /api/auth/refresh { refreshToken }</text>
+<line x1="880" y1="3232" x2="1920" y2="3232" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="1920,3232 1913,3228 1913,3236" fill="#0A0A0B"/>
+<text x="1400.0" y="3227" text-anchor="middle" font-size="10.5" fill="#0A0A0B">refresh(refreshToken)</text>
+<line x1="1920" y1="3260" x2="2180" y2="3260" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2180,3260 2173,3256 2173,3264" fill="#0A0A0B"/>
+<text x="2050.0" y="3255" text-anchor="middle" font-size="10.5" fill="#0A0A0B">findByHash(SHA-256(token))</text>
+<line x1="2180" y1="3288" x2="1920" y2="3288" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,3284 1920,3288 1927,3292" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="2050.0" y="3283" text-anchor="middle" font-size="10.5" fill="#0A0A0B">RefreshToken</text>
+<path d="M 1920 3310 h 34 v 18 h -34" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="1920,3328 1927,3324 1927,3332" fill="#0A0A0B"/>
+<text x="1964" y="3318" font-size="10.5" fill="#0A0A0B">vérifie !revoked &amp;&amp; !expired</text>
+<line x1="1920" y1="3350" x2="2180" y2="3350" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2180,3350 2173,3346 2173,3354" fill="#0A0A0B"/>
+<text x="2050.0" y="3345" text-anchor="middle" font-size="10.5" fill="#0A0A0B">revoke(oldToken)</text>
+<line x1="2180" y1="3378" x2="1920" y2="3378" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,3374 1920,3378 1927,3382" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="2050.0" y="3373" text-anchor="middle" font-size="10.5" fill="#0A0A0B">ok</text>
+<line x1="1920" y1="3406" x2="2050" y2="3406" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2050,3406 2043,3402 2043,3410" fill="#0A0A0B"/>
+<text x="1985.0" y="3401" text-anchor="middle" font-size="10.5" fill="#0A0A0B">sign(newAccess) + sign(newRefresh)</text>
+<line x1="2050" y1="3434" x2="1920" y2="3434" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,3430 1920,3434 1927,3438" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1985.0" y="3429" text-anchor="middle" font-size="10.5" fill="#0A0A0B">paire de jetons</text>
+<line x1="1920" y1="3462" x2="2180" y2="3462" stroke="#0A0A0B" stroke-width="1.2" />
+<polygon points="2180,3462 2173,3458 2173,3466" fill="#0A0A0B"/>
+<text x="2050.0" y="3457" text-anchor="middle" font-size="10.5" fill="#0A0A0B">save(newRefreshTokenHash)</text>
+<line x1="2180" y1="3490" x2="1920" y2="3490" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="1927,3486 1920,3490 1927,3494" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="2050.0" y="3485" text-anchor="middle" font-size="10.5" fill="#0A0A0B">ok</text>
+<line x1="1920" y1="3518" x2="880" y2="3518" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="887,3514 880,3518 887,3522" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="1400.0" y="3513" text-anchor="middle" font-size="10.5" fill="#0A0A0B">{ accessToken, refreshToken }</text>
+<line x1="880" y1="3546" x2="230" y2="3546" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polyline points="237,3542 230,3546 237,3550" fill="none" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="555.0" y="3541" text-anchor="middle" font-size="10.5" fill="#0A0A0B">200 { data }</text>
+<rect x="80" y="3614" width="2360" height="80" rx="6" fill="#FFF7D6" stroke="#8A7400" stroke-width="1.4"/>
+<text x="94" y="3636" font-size="12" font-weight="700" fill="#0A0A0B">Invariants de sécurité</text>
+<text x="94" y="3656" font-size="11" fill="#0A0A0B">• Toute réponse HTTP est enveloppée : { success, message, data, timestamp } — format standard du contrat API.</text>
+<text x="94" y="3673" font-size="11" fill="#0A0A0B">• Un 401 sur ressource protégée déclenche automatiquement la tentative de refresh côté client (interceptor Axios).</text>
+<text x="94" y="3690" font-size="11" fill="#0A0A0B">• Les refresh tokens sont stockés hashés (SHA-256) — jamais en clair. Rotation obligatoire à chaque usage.</text>
+</svg>

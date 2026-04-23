@@ -1,5 +1,6 @@
 package com.example.Telsa.domain.service;
 
+import com.example.Telsa.domain.exception.RateLimitExceededException;
 import com.example.Telsa.domain.model.ErpTeslaForeign;
 import com.example.Telsa.domain.model.ErpTeslaLocal;
 import com.example.Telsa.domain.model.User;
@@ -24,6 +25,8 @@ public class UserRegistrationService {
     private final BCryptPasswordEncoder passwordEncoder;
     private final ErpTeslaLocalRepository erpTeslaLocalRepository;
     private final ErpTeslaForeignRepository erpTeslaForeignRepository;
+    private final RateLimiterService rateLimiterService;
+    private final EmailVerificationService emailVerificationService;
 
     public User registerUser(UUID verificationToken,
                              String firstName,
@@ -31,7 +34,12 @@ public class UserRegistrationService {
                              String email,
                              String password,
                              String phoneNumber,
-                             String countryCode) {
+                             String countryCode,
+                             String clientIp) {
+        if (!rateLimiterService.isAllowed(clientIp)) {
+            throw new RateLimitExceededException(rateLimiterService.getRetryAfterSeconds(clientIp));
+        }
+
         var context = vehicleVerificationService.consumeToken(verificationToken);
 
         if (userRepository.existsByEmail(email)) {
@@ -63,7 +71,9 @@ public class UserRegistrationService {
             builder.erpForeign(foreign);
         }
 
-        return userRepository.save(builder.build());
+        User user = userRepository.save(builder.build());
+        emailVerificationService.sendVerificationEmail(user.getId());
+        return user;
     }
 
     private void validatePhone(VehicleOrigin origin, String countryCode, String phoneNumber) {
@@ -85,4 +95,3 @@ public class UserRegistrationService {
         return phoneNumber.matches("^\\d{7,15}$");
     }
 }
-

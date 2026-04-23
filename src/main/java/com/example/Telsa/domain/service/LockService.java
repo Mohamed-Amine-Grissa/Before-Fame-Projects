@@ -1,5 +1,6 @@
 package com.example.Telsa.domain.service;
 
+import com.example.Telsa.infrastructure.config.AuditLogger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +15,14 @@ public class LockService {
     private final int maxAttempts;
     private final long lockDurationMinutes;
     private final Map<String, LockRecord> locks = new ConcurrentHashMap<>();
+    private final AuditLogger auditLogger;
 
     public LockService(@Value("${lock.max-attempts}") int maxAttempts,
-                       @Value("${lock.duration-minutes}") long lockDurationMinutes) {
+                       @Value("${lock.duration-minutes}") long lockDurationMinutes,
+                       AuditLogger auditLogger) {
         this.maxAttempts = maxAttempts;
         this.lockDurationMinutes = lockDurationMinutes;
+        this.auditLogger = auditLogger;
     }
 
     public void recordFailure(String key) {
@@ -28,6 +32,7 @@ public class LockService {
 
         if (updatedFailures >= maxAttempts) {
             lockedUntil = Instant.now().plus(lockDurationMinutes, ChronoUnit.MINUTES);
+            auditLogger.logAccountLocked(key, "Too many failed attempts");
         }
 
         locks.put(key, new LockRecord(updatedFailures, lockedUntil));
@@ -65,4 +70,3 @@ public class LockService {
     private record LockRecord(int failureCount, Instant lockedUntil) {
     }
 }
-

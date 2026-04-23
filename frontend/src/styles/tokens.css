@@ -1,0 +1,135 @@
+/* ——— Telsa Charging Points · Design Tokens ——— */
+/* An independent platform serving verified EV owners in Tunisia */
+
+:root {
+  /* Palette — nocturnal, editorial, mechanical */
+  --ink:      #0A0A0B;   /* primary bg */
+  --graphite: #141417;   /* elevated surfaces */
+  --carbon:   #1E1E22;   /* wells, inputs */
+  --bone:     #F4F1EC;   /* primary text — warm off-white */
+  --chalk:    #9A968E;   /* secondary text */
+  --ember:    #E34E2C;   /* sole accent */
+  --ember-deep: #B83A1E;
+  --signal:   #7FB285;   /* "available / verified" */
+  --rule:     #2A2A2E;   /* 1px hairlines */
+  --rule-strong: #3A3A40;
+
+  /* Type */
+  --f-display: "Fraunces", "GT Super", "PP Editorial New", ui-serif, Georgia, serif;
+  --f-ui:      "Inter Tight", "PP Neue Montreal", "Geist", ui-sans-serif, system-ui, sans-serif;
+  --f-mono:    "JetBrains Mono", "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Scale anchored to 8pt */
+  --step-00: 11px;
+  --step-0:  13px;
+  --step-1:  15px;
+  --step-2:  18px;
+  --step-3:  22px;
+  --step-4:  28px;
+  --step-5:  36px;
+  --step-6:  48px;
+  --step-7:  64px;
+  --step-8:  88px;
+  --step-9:  120px;
+
+  /* Motion */
+  --e-editorial: cubic-bezier(0.2, 0.9, 0.2, 1);
+  --e-mass:      cubic-bezier(0.32, 0.72, 0, 1);
+
+  /* Grid */
+  --gutter: 96px;
+  --gutter-sm: 48px;
+
+  /* Radius — sharp, engineered */
+  --r-input: 2px;
+  --r-btn:   2px;
+  --r-card:  0px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0; padding: 0;
+  background: var(--ink);
+  color: var(--bone);
+  font-family: var(--f-ui);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body { overflow-x: hidden; }
+
+/* Selection */
+::selection { background: var(--ember); color: var(--bone); }
+
+/* Scrollbar — minimal */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--rule); }
+::-webkit-scrollbar-thumb:hover { background: var(--rule-strong); }
+
+/* Type utilities */
+.t-display  { font-family: var(--f-display); font-weight: 400; letter-spacing: -0.03em; line-height: 0.95; }
+.t-display-it { font-family: var(--f-display); font-weight: 400; font-style: italic; letter-spacing: -0.03em; line-height: 0.95; }
+.t-ui       { font-family: var(--f-ui); letter-spacing: -0.01em; }
+.t-mono     { font-family: var(--f-mono); letter-spacing: 0; font-feature-settings: "tnum" 1; }
+.t-caps     { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--chalk); }
+.t-caps-bone { font-family: var(--f-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bone); }
+
+/* Hairlines */
+.hr { height: 1px; background: var(--rule); border: 0; }
+
+/* Offset link */
+.link-offset {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+.link-offset::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+  height: 1px; background: currentColor;
+  transform-origin: right center;
+  transform: scaleX(1);
+  transition: transform 500ms var(--e-editorial);
+}
+.link-offset:hover::after {
+  transform-origin: left center;
+  transform: scaleX(1);
+  animation: linkWipe 650ms var(--e-editorial);
+}
+@keyframes linkWipe {
+  0%   { transform-origin: right center; transform: scaleX(1); }
+  50%  { transform-origin: right center; transform: scaleX(0); }
+  51%  { transform-origin: left center;  transform: scaleX(0); }
+  100% { transform-origin: left center;  transform: scaleX(1); }
+}
+
+/* Grain overlay */
+.grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  opacity: 0.06; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.6'/></svg>");
+}
+
+/* Focus — 2px Ember outline offset 4px */
+:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: 4px;
+}
+button, input, select, textarea { font: inherit; color: inherit; }
+
+/* Hide default cursor when custom cursor is on (desktop only) */
+@media (hover: hover) and (pointer: fine) {
+  html.has-cursor, html.has-cursor * { cursor: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

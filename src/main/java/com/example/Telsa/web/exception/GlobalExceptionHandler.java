@@ -3,6 +3,7 @@ package com.example.Telsa.web.exception;
 import com.example.Telsa.domain.exception.AccountLockedException;
 import com.example.Telsa.domain.exception.MaxOtpRetriesException;
 import com.example.Telsa.domain.exception.OtpExpiredException;
+import com.example.Telsa.domain.exception.RateLimitExceededException;
 import com.example.Telsa.web.dto.response.ApiResponse;
 import io.jsonwebtoken.JwtException;
 import jakarta.persistence.EntityNotFoundException;
@@ -93,6 +94,15 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ApiResponse.<Void>builder()
                 .success(false)
                 .message("Resource not found")
+                .build());
+    }
+
+    @ExceptionHandler(RateLimitExceededException.class)
+    public ResponseEntity<ApiResponse<Void>> handleRateLimitExceeded(RateLimitExceededException ex) {
+        return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS).body(ApiResponse.<Void>builder()
+                .success(false)
+                .message("Too many requests. Try again in " + ex.getRetryAfterSeconds() + " seconds.")
+                .retryAfterSeconds(ex.getRetryAfterSeconds())
                 .build());
     }
 

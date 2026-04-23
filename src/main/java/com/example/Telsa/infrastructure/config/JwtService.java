@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
+import java.security.MessageDigest;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -37,7 +37,7 @@ public class JwtService {
                 .subject(user.getId().toString())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plus(accessExpirationMinutes, ChronoUnit.MINUTES)))
-                .claim("role", "USER")
+                .claim("role", user.getRole() == null ? "USER" : user.getRole())
                 .signWith(signingKey())
                 .compact();
     }
@@ -85,8 +85,21 @@ public class JwtService {
         return "refresh".equals(type);
     }
 
+    public String hashToken(String token) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(token.getBytes(java.nio.charset.StandardCharsets.UTF_8));
+            StringBuilder builder = new StringBuilder();
+            for (byte b : hashBytes) {
+                builder.append(String.format("%02x", b));
+            }
+            return builder.toString();
+        } catch (Exception ex) {
+            throw new IllegalStateException("Failed to hash token", ex);
+        }
+    }
+
     private SecretKey signingKey() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
     }
 }
-

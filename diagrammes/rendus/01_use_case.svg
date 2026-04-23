@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" font-family="Inter Tight, sans-serif">
+<rect width="1600" height="1200" fill="#F4F1EC"/>
+<text x="800.0" y="42" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="22" font-weight="800" fill="#0A0A0B">Telsa Charging Points</text>
+<text x="800.0" y="66" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" fill="#9A968E">Diagramme de cas d'utilisation — acteurs, frontières &amp; relations</text>
+<line x1="120" y1="82" x2="1480" y2="82" stroke="#0A0A0B" stroke-width="0.6"/>
+<circle cx="90" cy="224" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="238" x2="90" y2="272" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="74" y1="250" x2="106" y2="250" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="272" x2="76" y2="294" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="272" x2="104" y2="294" stroke="#0A0A0B" stroke-width="2"/>
+<text x="90" y="316" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Visiteur</text>
+<circle cx="90" cy="484" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="498" x2="90" y2="532" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="74" y1="510" x2="106" y2="510" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="532" x2="76" y2="554" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="532" x2="104" y2="554" stroke="#0A0A0B" stroke-width="2"/>
+<text x="90" y="576" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Propriétaire</text>
+<text x="90" y="592" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#9A968E">vérifié</text>
+<circle cx="90" cy="744" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="758" x2="90" y2="792" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="74" y1="770" x2="106" y2="770" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="792" x2="76" y2="814" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="90" y1="792" x2="104" y2="814" stroke="#0A0A0B" stroke-width="2"/>
+<text x="90" y="836" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Administrateur</text>
+<line x1="90" y1="480" x2="90" y2="330" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="90,330 95.2066048694107,340.81162641482905 84.7933951305893,340.81162641482905" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="96.0" y="405.0" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#9A968E">hérite de</text>
+<line x1="90" y1="740" x2="90" y2="590" stroke="#0A0A0B" stroke-width="1.2"/>
+<polygon points="90,590 95.2066048694107,600.811626414829 84.7933951305893,600.811626414829" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.2"/>
+<text x="96.0" y="665.0" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#9A968E">hérite de</text>
+<circle cx="1510" cy="224" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="238" x2="1510" y2="272" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1494" y1="250" x2="1526" y2="250" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="272" x2="1496" y2="294" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="272" x2="1524" y2="294" stroke="#0A0A0B" stroke-width="2"/>
+<text x="1510" y="316" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Registre ERP</text>
+<text x="1510" y="332" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#9A968E">«system»</text>
+<circle cx="1510" cy="384" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="398" x2="1510" y2="432" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1494" y1="410" x2="1526" y2="410" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="432" x2="1496" y2="454" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="432" x2="1524" y2="454" stroke="#0A0A0B" stroke-width="2"/>
+<text x="1510" y="476" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Stockage fichiers</text>
+<text x="1510" y="492" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#9A968E">«system»</text>
+<circle cx="1510" cy="544" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="558" x2="1510" y2="592" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1494" y1="570" x2="1526" y2="570" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="592" x2="1496" y2="614" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="592" x2="1524" y2="614" stroke="#0A0A0B" stroke-width="2"/>
+<text x="1510" y="636" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">SMTP</text>
+<text x="1510" y="652" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#9A968E">«system»</text>
+<circle cx="1510" cy="704" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="718" x2="1510" y2="752" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1494" y1="730" x2="1526" y2="730" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="752" x2="1496" y2="774" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="752" x2="1524" y2="774" stroke="#0A0A0B" stroke-width="2"/>
+<text x="1510" y="796" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Twilio SMS</text>
+<text x="1510" y="812" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#9A968E">«system»</text>
+<circle cx="1510" cy="864" r="14" fill="#F4F1EC" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="878" x2="1510" y2="912" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1494" y1="890" x2="1526" y2="890" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="912" x2="1496" y2="934" stroke="#0A0A0B" stroke-width="2"/>
+<line x1="1510" y1="912" x2="1524" y2="934" stroke="#0A0A0B" stroke-width="2"/>
+<text x="1510" y="956" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="13" font-weight="600" fill="#0A0A0B">Réviseur</text>
+<text x="1510" y="972" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#9A968E">«humain»</text>
+<rect x="200" y="120" width="1200" height="960" rx="10" ry="10" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.8" stroke-dasharray="2 0"/>
+<text x="220" y="150" font-family="Inter Tight, sans-serif" font-size="13" font-weight="700" fill="#0A0A0B">Système :: Telsa Charging Points</text>
+<g>
+  <rect x="240" y="170" width="540" height="240" rx="6" ry="6" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+  <path d="M 240 192 L 780 192" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="254" y="186" font-family="Inter Tight, sans-serif" font-size="12" font-weight="700" fill="#0A0A0B">Vérification du véhicule</text>
+</g>
+<ellipse cx="370" cy="230" rx="110" ry="30" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="226" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Vérifier véhicule local</text>
+<text x="370" y="242" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">(chassis + plaque)</text>
+<ellipse cx="650" cy="230" rx="110" ry="30" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="226" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Vérifier véhicule</text>
+<text x="650" y="242" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">étranger (carte grise)</text>
+<ellipse cx="320" cy="320" rx="70" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="320" y="324" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Consulter ERP</text>
+<ellipse cx="500" cy="320" rx="90" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="500" y="324" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Rate-limit IP</text>
+<ellipse cx="660" cy="320" rx="90" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="660" y="324" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Téléverser carte grise</text>
+<ellipse cx="750" cy="380" rx="70" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="750" y="384" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Arbitrer dossier</text>
+<g>
+  <rect x="240" y="430" width="540" height="340" rx="6" ry="6" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+  <path d="M 240 452 L 780 452" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="254" y="446" font-family="Inter Tight, sans-serif" font-size="12" font-weight="700" fill="#0A0A0B">Compte &amp; Authentification</text>
+</g>
+<ellipse cx="370" cy="490" rx="100" ry="26" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="494" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Créer un compte</text>
+<ellipse cx="650" cy="490" rx="110" ry="26" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="494" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Confirmer e-mail</text>
+<ellipse cx="370" cy="560" rx="100" ry="26" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="564" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Se connecter</text>
+<ellipse cx="650" cy="560" rx="90" ry="26" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="564" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Vérifier OTP</text>
+<ellipse cx="370" cy="625" rx="100" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="629" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Renvoyer OTP</text>
+<ellipse cx="650" cy="625" rx="110" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="629" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Rafraîchir session</text>
+<ellipse cx="370" cy="685" rx="100" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="689" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Se déconnecter</text>
+<ellipse cx="650" cy="685" rx="110" ry="22" fill="#E34E2C" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="689" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Verrouiller compte</text>
+<ellipse cx="510" cy="735" rx="85" ry="20" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="510" y="739" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Limiter débit</text>
+<g>
+  <rect x="240" y="790" width="260" height="260" rx="6" ry="6" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+  <path d="M 240 812 L 500 812" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="254" y="806" font-family="Inter Tight, sans-serif" font-size="12" font-weight="700" fill="#0A0A0B">Usage authentifié</text>
+</g>
+<ellipse cx="370" cy="860" rx="110" ry="26" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="856" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Consulter bornes</text>
+<text x="370" y="872" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">à proximité</text>
+<ellipse cx="370" cy="960" rx="100" ry="26" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="370" y="964" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Consulter compte</text>
+<g>
+  <rect x="520" y="790" width="260" height="260" rx="6" ry="6" fill="#EDE9E0" stroke="#0A0A0B" stroke-width="1.4"/>
+  <path d="M 520 812 L 780 812" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="534" y="806" font-family="Inter Tight, sans-serif" font-size="12" font-weight="700" fill="#0A0A0B">Administration</text>
+</g>
+<ellipse cx="650" cy="840" rx="100" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="844" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Statistiques</text>
+<ellipse cx="650" cy="885" rx="100" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="889" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Lister utilisateurs</text>
+<ellipse cx="650" cy="930" rx="100" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="934" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Consulter utilisateur</text>
+<ellipse cx="650" cy="975" rx="100" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="979" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Supprimer utilisateur</text>
+<ellipse cx="650" cy="1020" rx="110" ry="22" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.6"/>
+<text x="650" y="1024" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="12" font-weight="600" fill="#0A0A0B">Ajouter entrée ERP</text>
+<line x1="125" y1="260" x2="260" y2="230" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="260" x2="540" y2="230" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="260" x2="270" y2="490" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="260" x2="550" y2="490" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="260" x2="270" y2="560" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="520" x2="260" y2="860" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="520" x2="270" y2="960" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="520" x2="550" y2="625" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="520" x2="270" y2="625" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="520" x2="270" y2="685" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="780" x2="550" y2="840" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="780" x2="550" y2="885" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="780" x2="550" y2="930" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="780" x2="550" y2="975" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="125" y1="780" x2="540" y2="1020" stroke="#0A0A0B" stroke-width="1.2" />
+<line x1="1475" y1="260" x2="390" y2="320" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polygon points="390,320 397.0050996186919,316.1362480239795 397.3884111085598,323.0677974657578" fill="#0A0A0B"/>
+<line x1="1475" y1="420" x2="730" y2="320" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polygon points="730,320 737.6054576782453,317.5186669904224 736.681909566229,324.3991004249433" fill="#0A0A0B"/>
+<line x1="1475" y1="580" x2="760" y2="490" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="1085.5" y="526.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="1117.5" y="537.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«invoque»</text>
+<polygon points="760,490 767.5848169397219,487.4562720289096 766.717822621515,494.34406022355375" fill="#0A0A0B"/>
+<line x1="1475" y1="740" x2="740" y2="560" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="1075.5" y="641.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="1107.5" y="652.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«invoque»</text>
+<polygon points="740,560 747.8265281038395,558.34305768362 746.175210124284,565.0859394334715" fill="#0A0A0B"/>
+<line x1="1475" y1="900" x2="790" y2="400" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polygon points="790,400 797.8682582788877,401.44586017882636 793.7753597882237,407.05313111103595" fill="#0A0A0B"/>
+<line x1="370" y1="260" x2="320" y2="308" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="313.0" y="275.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="345.0" y="286.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="320,308 322.7957537510043,300.50441723654893 327.60340653617027,305.51238888776345" fill="#0A0A0B"/>
+<line x1="370" y1="260" x2="480" y2="308" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="393.0" y="275.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="425.0" y="286.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="480,308 472.00557726293465,308.29867223020045 474.78204759918253,301.9359277096325" fill="#0A0A0B"/>
+<line x1="650" y1="260" x2="660" y2="308" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="623.0" y="275.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="655.0" y="286.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="660,308 655.1318390522416,301.65169243130737 661.9280580128597,300.23581348117864" fill="#0A0A0B"/>
+<line x1="650" y1="260" x2="730" y2="370" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="658.0" y="306.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="690.0" y="317.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="730,370 722.9534254015737,366.2124168089911 728.5677843810419,362.1292466421052" fill="#0A0A0B"/>
+<line x1="370" y1="516" x2="370" y2="540" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polygon points="370,540 366.5289300870595,532.7922490567806 373.4710699129405,532.7922490567806" fill="#0A0A0B"/>
+<line x1="370" y1="540" x2="370" y2="540" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<polygon points="370,540 362.79224905678063,543.4710699129405 362.79224905678063,536.5289300870595" fill="#0A0A0B"/>
+<line x1="370" y1="516" x2="650" y2="478" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="478.0" y="488.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="510.0" y="499.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="650,478 643.3245180763597,482.4088480453687 642.3909288948311,475.529769865684" fill="#0A0A0B"/>
+<line x1="420" y1="560" x2="600" y2="560" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="478.0" y="551.0" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="510.0" y="562.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="600,560 592.7922490567806,563.4710699129405 592.7922490567806,556.5289300870595" fill="#0A0A0B"/>
+<line x1="420" y1="572" x2="475" y2="735" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="415.5" y="644.5" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="447.5" y="655.5" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="475,735 469.4066970034483,729.2803005683196 475.98447370888636,727.0608053609632" fill="#0A0A0B"/>
+<line x1="650" y1="580" x2="540" y2="735" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="563.0" y="648.5" width="64" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="595.0" y="659.5" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«include»</text>
+<polygon points="540,735 541.3407819640792,727.1131562888061 547.0021465918359,731.1308989278592" fill="#0A0A0B"/>
+<line x1="600" y1="685" x2="420" y2="575" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="481.0" y="621.0" width="58" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="510.0" y="632.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«extend»</text>
+<polygon points="420,575 427.96023238025504,575.7966808974356 424.34025350241865,581.7202826975316" fill="#0A0A0B"/>
+<line x1="320" y1="478" x2="340" y2="260" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+<rect x="283.0" y="360.0" width="94" height="14" rx="3" fill="#F4F1EC" stroke="none"/>
+<text x="330.0" y="371.0" text-anchor="middle" font-family="Inter Tight, sans-serif" font-size="10" font-style="italic" fill="#0A0A0B">«precondition»</text>
+<polygon points="340,260 342.7980576865961,267.49472302239917 335.8849500213155,266.8604929613643" fill="#0A0A0B"/>
+<g>
+  <rect x="1170" y="1050" width="410" height="130" rx="8" fill="#FFF7D6" stroke="#8A7400" stroke-width="1.4"/>
+  <text x="1180" y="1075" font-family="Inter Tight, sans-serif" font-size="12" font-weight="700" fill="#0A0A0B">Sécurité &amp; gouvernance</text>
+  <text x="1180" y="1095" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">• JWT stateless (access + refresh) — rotation systématique</text>
+  <text x="1180" y="1112" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">• Refresh stocké hashé SHA-256, jamais en clair</text>
+  <text x="1180" y="1129" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">• OTP à durée limitée, verrouillage après N échecs</text>
+  <text x="1180" y="1146" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">• Rate-limit IP sur toute porte d'entrée publique</text>
+  <text x="1180" y="1163" font-family="Inter Tight, sans-serif" font-size="11" fill="#0A0A0B">• Administration réservée à ROLE_ADMIN (SecurityConfig)</text>
+</g>
+<g>
+  <rect x="20" y="1050" width="380" height="130" rx="8" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="30" y="1075" font-family="Inter Tight, sans-serif" font-size="12" font-weight="700" fill="#0A0A0B">Légende</text>
+  <ellipse cx="55" cy="1098" rx="25" ry="9" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="90" y="1102" font-size="11" fill="#0A0A0B">cas d'utilisation</text>
+  <line x1="30" y1="1125" x2="60" y2="1125" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="70" y="1128" font-size="11" fill="#0A0A0B">association</text>
+  <line x1="200" y1="1125" x2="230" y2="1125" stroke="#0A0A0B" stroke-width="1.2" stroke-dasharray="5 4"/>
+  <text x="240" y="1128" font-size="11" fill="#0A0A0B">«include» / «extend»</text>
+  <polygon points="30,1150 50,1145 50,1155" fill="#FFFFFF" stroke="#0A0A0B" stroke-width="1.2"/>
+  <line x1="50" y1="1150" x2="80" y2="1150" stroke="#0A0A0B" stroke-width="1.2"/>
+  <text x="90" y="1153" font-size="11" fill="#0A0A0B">généralisation (héritage d'acteur)</text>
+</g>
+</svg>
