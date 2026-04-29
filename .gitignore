@@ -79,3 +79,7 @@ carte-grise/
 application-local.properties
 application.properties
 
+#Folders to ignore
+.claude/
+Gen_Vid/
+
